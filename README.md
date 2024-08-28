@@ -1,28 +1,35 @@
-Zadanie: Biblioteka Kolekcji Generycznych
-Opis: Twoim zadaniem jest stworzenie biblioteki klas generycznych, która umożliwi zarządzanie różnymi typami kolekcji danych. Biblioteka powinna obsługiwać typy generyczne, metody generyczne, wildcardy, oraz ograniczenia typów.
+Task: Generic Collection Library
 
-Wymagania:
-Interfejs CollectionManager<T>:
+Description: Your task is to create a library of generic classes that enables the management of different types of data collections. The library should handle generic types, generic methods, wildcards, and type constraints.
 
-Zdefiniuj generyczny interfejs CollectionManager<T>, który będzie miał następujące metody:
-void addItem(T item): Dodaje element do kolekcji.
-T getItem(int index): Zwraca element z kolekcji na podanej pozycji.
-int getSize(): Zwraca liczbę elementów w kolekcji.
-List<T> getAllItems(): Zwraca listę wszystkich elementów z kolekcji.
-T findMax(Comparator<? super T> comparator): Zwraca największy element w kolekcji na podstawie przekazanego komparatora.
-Klasa ListManager<T>:
+Requirements:
 
-Zaimplementuj interfejs CollectionManager<T> w klasie ListManager<T>, która będzie korzystać z listy (List<T>) jako wewnętrznej struktury danych.
-Klasa BoundedNumberManager<T extends Number>:
+CollectionManager<T> Interface:
 
-Stwórz klasę BoundedNumberManager<T extends Number>, która również zaimplementuje interfejs CollectionManager<T>. Klasa ta będzie zarządzać kolekcją liczb (np. Integer, Double).
-Dodaj dodatkową metodę:
-double calculateSum(): Zwraca sumę wszystkich elementów w kolekcji.
+Define a generic interface CollectionManager<T> that has the following methods:
+
+void addItem(T item): Adds an item to the collection.
+T getItem(int index): Returns the item at the specified index in the collection.
+int getSize(): Returns the number of elements in the collection.
+List<T> getAllItems(): Returns a list of all items in the collection.
+T findMax(Comparator<? super T> comparator): Returns the maximum item in the collection based on the provided comparator.
+ListManager<T> Class:
+
+Implement the CollectionManager<T> interface in the ListManager<T> class, which will use a List<T> as its internal data structure.
+
+BoundedNumberManager<T extends Number> Class:
+
+Create the BoundedNumberManager<T extends Number> class that also implements the CollectionManager<T> interface. This class will manage a collection of numbers (e.g., Integer, Double).
+
+Add an additional method:
+double calculateSum(): Returns the sum of all elements in the collection.
 Wildcards:
 
-Stwórz metodę generyczną mergeCollections, która przyjmie dwa obiekty CollectionManager<? extends T> i połączy je w nową kolekcję typu CollectionManager<T>.
-Metoda powinna zwracać nową kolekcję zawierającą elementy z obu kolekcji.
-Testowanie:
+Create a generic method mergeCollections that takes two CollectionManager<? extends T> objects and merges them into a new CollectionManager<T> collection.
 
-Napisz klasę Main z metodą main, w której przetestujesz działanie stworzonej biblioteki.
-Utwórz instancje klasy ListManager<String> i BoundedNumberManager<Integer>, dodaj kilka elementów do każdej z nich, a następnie przetestuj wszystkie dostępne metody, w tym mergeCollections.
+The method should return a new collection containing elements from both collections.
+Testing:
+
+Write a Main class with a main method where you will test the functionality of the created library.
+
+Create instances of ListManager<String> and BoundedNumberManager<Integer>, add some elements to each, and then test all available methods, including mergeCollections.
