@@ -1,10 +1,14 @@
 package org.example;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Supplier;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public class ListManager<T> implements CollectionManager<T> {
 
     private List<T> elements = new ArrayList<>();
