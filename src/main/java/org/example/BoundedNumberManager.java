@@ -1,9 +1,14 @@
 package org.example;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 public class BoundedNumberManager<T extends Number> implements CollectionManager<T> {
 
     private List<T> elements = new ArrayList<>();
@@ -32,7 +37,7 @@ public class BoundedNumberManager<T extends Number> implements CollectionManager
     public T findMax(Comparator<? super T> comparator) {
         return elements.stream()
                 .max(comparator)
-                .get();
+                .orElseThrow(EmptyListException::new);
     }
 
     double calculateSum() {
